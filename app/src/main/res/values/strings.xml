@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="notes">Notes</string>
+    <string name="_1">1</string>
+    <string name="save_note">Save Note</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="delete">Delete</string>
+    <string name="add_notes">Add Notes</string>
+    <string name="fab_button">Fab Button</string>
+    <string name="sort_alphabetically">Sort alphabetically</string>
+    <string name="sort_by_modified_time">Sort by modified time</string>
+    <string name="delete_all_notes">Delete all notes</string>
+</resources>
