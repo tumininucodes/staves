@@ -31,7 +31,7 @@ class AddNotesActivity : AppCompatActivity() {
         }
 
         binding2.saveNoteButton.setOnClickListener {
-            Toast.makeText(this, "Notes added successfully", Toast.LENGTH_LONG)
+            Toast.makeText(this, "Notes added successfully", Toast.LENGTH_SHORT).show()
             overridePendingTransition(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
