@@ -11,6 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
+            android:elevation="12dp"
             app:titleTextColor="@color/white"
             app:menu="@menu/main_activity_menu"
             app:title="@string/app_name"

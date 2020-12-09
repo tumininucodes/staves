@@ -20,21 +20,21 @@ class AddNotesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding2 = inflate(layoutInflater)
         setContentView(binding2.root)
+        setSupportActionBar(binding2.addNotesToolbar)
 
-        // onclick listener
-        binding2.addNotesToolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back)
+        binding2.addNotesToolbar.setNavigationOnClickListener {
 
-        binding2.addNotesToolbar.setOnClickListener {
-            overridePendingTransition(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+
         }
 
         binding2.saveNoteButton.setOnClickListener {
             Toast.makeText(this, "Notes added successfully", Toast.LENGTH_SHORT).show()
-            overridePendingTransition(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
+
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+            finishActivity(1)
         }
 
 
@@ -43,9 +43,10 @@ class AddNotesActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
 
-        overridePendingTransition(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+
+        finishActivity(1)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

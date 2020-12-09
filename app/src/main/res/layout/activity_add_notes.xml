@@ -11,9 +11,11 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/addNotes_toolbar"
             android:layout_width="match_parent"
+            app:navigationIcon="@drawable/abc_vector_test"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:menu="@menu/menu_options_notes"
+            android:elevation="12dp"
             app:title="@string/add_notes"
             app:titleTextAppearance="@style/ActionBarText"
             app:titleTextColor="@color/white" />
@@ -31,6 +33,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:inputType="textShortMessage|textCapSentences|textAutoCorrect"
                 android:layout_gravity="start" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -50,7 +53,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="start" />
+                android:gravity="start"
+                android:inputType="textLongMessage|textAutoCorrect|textMultiLine|textCapSentences|textImeMultiLine" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
