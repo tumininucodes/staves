@@ -2,25 +2,31 @@
 <layout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_note"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/rounded_corner"
-            android:elevation="5dp"
-            app:title="@string/app_name"
-            app:titleTextAppearance="@style/ActionBarText"
-            app:titleTextColor="@color/black" />
+            android:elevation="5dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textAppearance="@style/ActionBarText" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -29,12 +35,11 @@
 
             <ImageView
                 android:id="@+id/addNotesImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
                 android:layout_gravity="top|center"
-                android:layout_marginTop="240dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_add" />
+                android:layout_marginTop="130dp"
+                android:src="@drawable/add_notes_bro" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

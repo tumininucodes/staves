@@ -16,13 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setContentView(mainBinding.root)
-        setSupportActionBar(mainBinding.toolbarNote)
-
-        val isRemoved = intent.getStringExtra(REMOVE_IMAGE).toBoolean()
-
-        if (isRemoved) {
-            mainBinding.addNotesImage.visibility = View.GONE
-        }
+//        setSupportActionBar(mainBinding.toolbarNote)
 
         mainBinding.fabNotesAdd.setOnClickListener {
             startActivity(Intent(this, AddNotesActivity::class.java))
@@ -36,5 +30,7 @@ class MainActivity : AppCompatActivity() {
         finishActivity(0)
     }
 
-
+    private fun hideNoteImage() {
+        mainBinding.addNotesImage.visibility = View.GONE
+    }
 }
