@@ -18,5 +18,16 @@
             android:title="@string/export" />
     </group>
 
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_info_outline_black_24dp"
+            android:title="@string/about" />
+
+    </group>
+
 
 </menu>
