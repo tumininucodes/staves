@@ -38,8 +38,8 @@
                 android:padding="16dp">
 
                 <ImageView
-                    android:layout_width="126dp"
-                    android:layout_height="99dp"
+                    android:layout_width="65dp"
+                    android:layout_height="67dp"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/notes_icon" />
@@ -82,48 +82,29 @@
             app:cardCornerRadius="8dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:orientation="vertical"
                 android:padding="16dp">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:elevation="12dp"
-                    app:cardCornerRadius="40dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/circle_shape"
-                        android:contentDescription="@string/developer_s_image"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/avatar" />
-
-                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="start"
                     android:fontFamily="@font/product_sans_regular"
                     android:text="@string/designed_and_developed_by" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/product_sans_regular"
-                    android:text="Tumininu Ojo"
+                    android:text="@string/tumininu_ojo"
                     android:textSize="18sp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -140,7 +121,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -152,7 +133,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
-                        android:text="@string/https_github_com_tumininucodes" />
+                        android:text="@string/github_com_tumininucodes" />
 
                 </LinearLayout>
 
