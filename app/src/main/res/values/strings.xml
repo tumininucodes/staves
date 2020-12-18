@@ -18,4 +18,7 @@
     <string name="theme">Theme</string>
     <string name="export">Export</string>
     <string name="about">About</string>
+    <string name="developer_s_image">Developer\'s Image</string>
+    <string name="designed_and_developed_by">Designed and Developed by</string>
+    <string name="oluwatumininuojo25_gmail_com">oluwatumininuojo25@gmail.com</string>
 </resources>

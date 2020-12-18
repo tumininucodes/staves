@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:fontFamily="@font/product_sans_regular"
-                    android:text="@string/tumininu_ojo"
+                    android:text="Tumininu Ojo"
                     android:textSize="18sp" />
 
                 <LinearLayout
