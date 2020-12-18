@@ -3,6 +3,7 @@ package com.tecx.notes
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
@@ -29,7 +30,23 @@ class NoteActivity : AppCompatActivity() {
         noteBinding.navigationView.setNavigationItemSelectedListener { menuItem ->
             // Handle menu item selected
 //            menuItem.isChecked = true
-            when
+            when (menuItem.itemId) {
+                R.id.backup -> {
+                    Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.export -> {
+                    Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.theme -> {
+                    Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.about -> {
+                    Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+                }
+            }
             noteBinding.drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
