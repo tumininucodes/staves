@@ -1,5 +1,7 @@
 package com.tecx.notes
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -15,6 +17,18 @@ class MainActivity : AppCompatActivity() {
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setContentView(mainBinding.root)
 
+        val isFirstRun: Boolean =
+            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).getBoolean("isFirstRun", true)
 
+        if (isFirstRun) {
+            startActivity(Intent(this, WelcomeActivity::class.java))
+            finish()
+        } else {
+            startActivity(Intent(this, NoteActivity::class.java))
+            finish()
+        }
+
+        getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
+            .putBoolean("isFirstRun", false).apply()
     }
 }
