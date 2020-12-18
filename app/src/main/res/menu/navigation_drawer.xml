@@ -6,16 +6,16 @@
         <item
             android:id="@+id/backup"
             android:checked="true"
-            android:icon="@drawable/ic_favorite_24dp"
+            android:icon="@drawable/ic_backup_black_24dp"
             android:title="@string/backup" />
         <item
-            android:id="@+id/item2"
-            android:icon="@drawable/ic_favorite_24dp"
-            android:title="@string/title_2" />
+            android:id="@+id/theme"
+            android:icon="@drawable/ic_style_black_24dp"
+            android:title="@string/theme" />
         <item
-            android:id="@+id/item3"
-            android:icon="@drawable/ic_favorite_24dp"
-            android:title="@string/title_3" />
+            android:id="@+id/export"
+            android:icon="@drawable/ic_share_black_24dp"
+            android:title="@string/export" />
     </group>
 
 
