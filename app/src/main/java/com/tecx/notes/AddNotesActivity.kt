@@ -18,6 +18,11 @@ class AddNotesActivity : AppCompatActivity() {
         addNotesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes)
         setContentView(addNotesBinding.root)
 
+        addNotesBinding.addNotesToolbar.setNavigationOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         addNotesBinding.saveNoteButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
