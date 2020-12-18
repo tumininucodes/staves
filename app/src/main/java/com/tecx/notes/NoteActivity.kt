@@ -28,7 +28,8 @@ class NoteActivity : AppCompatActivity() {
 
         noteBinding.navigationView.setNavigationItemSelectedListener { menuItem ->
             // Handle menu item selected
-            menuItem.isChecked = true
+//            menuItem.isChecked = true
+            when
             noteBinding.drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
