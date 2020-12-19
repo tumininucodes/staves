@@ -16,7 +16,7 @@
             app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
             app:title="@string/add_notes"
             app:titleTextAppearance="@style/ActionBarText"
-            app:titleTextColor="@color/black"
+            app:titleTextColor="@color/white"
             tools:ignore="PrivateResource" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -28,22 +28,22 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/title"
-            app:boxStrokeColor="@color/blue"
-            app:hintTextColor="@color/blue">
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="start"
                 android:inputType="textShortMessage|textCapSentences|textAutoCorrect"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_description"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -51,15 +51,15 @@
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:hint="@string/description"
-            app:boxStrokeColor="@color/blue"
-            app:hintTextColor="@color/blue">
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="start"
                 android:inputType="textLongMessage|textAutoCorrect|textMultiLine|textCapSentences|textImeMultiLine"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

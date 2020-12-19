@@ -23,7 +23,7 @@
             android:gravity="center"
             android:text="@string/hi"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
 
 
         <TextView
@@ -36,7 +36,7 @@
             android:fontFamily="@font/product_sans_regular"
             android:gravity="start"
             android:text="@string/the_rapidity_to_which_we_humans_forget_is_astonishing"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="19sp" />
 
 
