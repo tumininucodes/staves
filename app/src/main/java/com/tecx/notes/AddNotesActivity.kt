@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.tecx.notes.databinding.ActivityAddNotesBinding
 
-const val REMOVE_IMAGE = "false"
-
 class AddNotesActivity : AppCompatActivity() {
 
     private lateinit var addNotesBinding: ActivityAddNotesBinding
@@ -16,7 +14,6 @@ class AddNotesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addNotesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes)
-        setContentView(addNotesBinding.root)
 
         addNotesBinding.addNotesToolbar.setNavigationOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:id="@+id/group1">
-        <item
-            android:id="@+id/backup"
-            android:icon="@drawable/ic_backup_black_24dp"
-            android:title="@string/backup" />
-        <item
-            android:id="@+id/theme"
-            android:icon="@drawable/ic_style_black_24dp"
-            android:title="@string/theme" />
-        <item
-            android:id="@+id/export"
-            android:icon="@drawable/ic_share_black_24dp"
-            android:title="@string/export" />
-    </group>
 
-    <group android:id="@+id/group2">
+    <item
+        android:id="@+id/theme"
+        android:icon="@drawable/ic_style_black_24dp"
+        android:title="@string/theme" />
 
-        <item
-            android:id="@+id/about"
-            android:icon="@drawable/ic_info_outline_black_24dp"
-            android:title="@string/about" />
-
-    </group>
-
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/ic_info_outline_black_24dp"
+        android:title="@string/about" />
 
 </menu>

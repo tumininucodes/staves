@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -8,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -16,16 +15,16 @@
                 android:id="@+id/toolbar_note"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
-                android:layout_alignParentStart="true"
-                app:titleTextColor="@color/black"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/rounded_corner"
                 android:elevation="5dp"
-                app:navigationIcon="@drawable/ic_menu_black_24dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/ic_menu_black_24dp"
+                app:titleTextColor="@color/black">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
@@ -33,51 +32,52 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/black"
-                    android:textAppearance="@style/ActionBarText" />
+                    android:textAppearance="@style/ActionBarText"
+                    android:textColor="@color/black" />
 
             </com.google.android.material.appbar.MaterialToolbar>
 
-            <FrameLayout
+
+            <ImageView
+                android:id="@+id/addNotesImage"
+                android:layout_width="266dp"
+                android:layout_height="239dp"
+                android:layout_marginTop="200dp"
+                android:src="@drawable/ic_add_notes_bro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/toolbar_note">
+                android:layout_marginTop="60dp"
+                android:elevation="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/addNotesImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_gravity="top|center"
-                    android:layout_marginTop="130dp"
-                    android:src="@drawable/add_notes_bro" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </FrameLayout>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_notesAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:src="@drawable/ic_add" />
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigationView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
             android:layout_gravity="start"
+            android:background="@color/white"
             app:itemIconTint="@color/black"
             app:itemTextColor="@color/black"
-            android:background="@color/white"
             app:menu="@menu/navigation_drawer" />
 
 
