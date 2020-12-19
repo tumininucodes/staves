@@ -2,8 +2,9 @@ package com.tecx.notes
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import com.tecx.notes.databinding.ActivityNoteBinding
@@ -16,14 +17,14 @@ class NoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         noteBinding = DataBindingUtil.setContentView(this, R.layout.activity_note)
 
-//        noteBinding.toolbarNote.setNavigationOnClickListener {
-//            noteBinding.drawerLayout.openDrawer(noteBinding.navigationView)
-//        }
-
-//        noteBinding.fabNotesAdd.setOnClickListener {
-//            startActivity(Intent(this, AddNotesActivity::class.java))
-//            finish()
-//        }
+        noteBinding.toolbarNote.setNavigationOnClickListener {
+            noteBinding.drawerLayout.openDrawer(noteBinding.navigationView)
+        }
+//
+        noteBinding.fabNotesAdd.setOnClickListener {
+            startActivity(Intent(this, AddNotesActivity::class.java))
+            finish()
+        }
 
         noteBinding.navigationView.setNavigationItemSelectedListener { menuItem ->
             // Handle menu item selected
@@ -31,7 +32,8 @@ class NoteActivity : AppCompatActivity() {
             when (menuItem.itemId) {
 
                 R.id.theme -> {
-                    Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+                    AppCompatDelegate.MODE_NIGHT_YES
                 }
 
                 R.id.about -> {
@@ -49,7 +51,7 @@ class NoteActivity : AppCompatActivity() {
         finishActivity(0)
     }
 
-//    private fun hideNoteImage() {
-//        noteBinding.addNotesImage.visibility = View.GONE
-//    }
+    private fun hideNoteImage() {
+        noteBinding.addNotesImage.visibility = View.GONE
+    }
 }
