@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import com.tecx.notes.databinding.ActivityNoteBinding
+import kotlinx.android.synthetic.main.activity_note.*
 
 class NoteActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class NoteActivity : AppCompatActivity() {
         setContentView(noteBinding.root)
 
         noteBinding.toolbarNote.setNavigationOnClickListener {
-            noteBinding.drawerLayout.openDrawer(GravityCompat.START)
+            noteBinding.drawerLayout.openDrawer(navigationView)
         }
 
         noteBinding.fabNotesAdd.setOnClickListener {
@@ -29,8 +30,9 @@ class NoteActivity : AppCompatActivity() {
 
         noteBinding.navigationView.setNavigationItemSelectedListener { menuItem ->
             // Handle menu item selected
-//            menuItem.isChecked = true
+            menuItem.isChecked = true
             when (menuItem.itemId) {
+
                 R.id.backup -> {
                     Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
                 }
@@ -44,7 +46,8 @@ class NoteActivity : AppCompatActivity() {
                 }
 
                 R.id.about -> {
-                    Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, AboutActivity::class.java))
+                    finish()
                 }
             }
             noteBinding.drawerLayout.closeDrawer(GravityCompat.START)

@@ -34,6 +34,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:textColor="@color/black"
                 android:layout_gravity="start"
                 android:inputType="textShortMessage|textCapSentences|textAutoCorrect" />
 
@@ -57,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="start"
+                android:textColor="@color/black"
                 android:inputType="textLongMessage|textAutoCorrect|textMultiLine|textCapSentences|textImeMultiLine" />
 
         </com.google.android.material.textfield.TextInputLayout>
