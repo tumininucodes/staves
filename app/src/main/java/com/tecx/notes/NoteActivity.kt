@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import com.tecx.notes.databinding.ActivityNoteBinding
-import kotlinx.android.synthetic.main.activity_note.*
 
 class NoteActivity : AppCompatActivity() {
 
@@ -17,10 +16,9 @@ class NoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         noteBinding = DataBindingUtil.setContentView(this, R.layout.activity_note)
-        setContentView(noteBinding.root)
 
         noteBinding.toolbarNote.setNavigationOnClickListener {
-            noteBinding.drawerLayout.openDrawer(navigationView)
+            noteBinding.drawerLayout.openDrawer(noteBinding.navigationView)
         }
 
         noteBinding.fabNotesAdd.setOnClickListener {
