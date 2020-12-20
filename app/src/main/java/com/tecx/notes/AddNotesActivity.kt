@@ -2,7 +2,9 @@ package com.tecx.notes
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isNotEmpty
 import androidx.databinding.DataBindingUtil
 import com.tecx.notes.databinding.ActivityAddNotesBinding
 
@@ -14,6 +16,7 @@ class AddNotesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        dbHandler = DataBaseHandler(this)
         // Use data binding to set content view
         addNotesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes)
 
@@ -29,13 +32,23 @@ class AddNotesActivity : AppCompatActivity() {
         // the note to the database
         addNotesBinding.saveNoteButton.setOnClickListener {
 
-//            if(addNotesBinding.etTitle.isNotEmpty()) {
-//
-//            }
+            // If the there is text in the title and description edit text, add it to the database
+            // and start the note activity, else a toast message appears that prompts users for
+            // input
+            if (addNotesBinding.etTitle.isNotEmpty()) {
+                val note = Notes()
+                note.name = addNotesBinding.etTitle.toString()
+                dbHandler.addToDo(note)
+//                refreshList()
+                val intent = Intent(this, NoteActivity::class.java)
+                startActivity(intent)
+                finish()
 
-            val intent = Intent(this, NoteActivity::class.java)
-            startActivity(intent)
-            finish()
+            } else {
+                Toast.makeText(this, "Note is empty, pls add a note", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
         }
 
     }
