@@ -12,6 +12,7 @@
         <item name="materialButtonStyle">@style/ButtonStyle</item>
         <item name="hintTextColor">@color/white</item>
         <item name="colorSecondary">@color/black_light</item>
+        <item name="android:textCursorDrawable">@color/white</item>
         <item name="android:windowBackground">@color/black</item>
         <item name="colorOnSecondary">@color/white</item>
     </style>
