@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isNotEmpty
 import androidx.databinding.DataBindingUtil
 import com.tecx.notes.databinding.ActivityAddNotesBinding
 
@@ -31,26 +30,30 @@ class AddNotesActivity : AppCompatActivity() {
         // An on click listener is set for the save button that saves the title and description of
         // the note to the database
         addNotesBinding.saveNoteButton.setOnClickListener {
-
             // If the there is text in the title and description edit text, add it to the database
             // and start the note activity, else a toast message appears that prompts users for
             // input
-            if (addNotesBinding.etTitle.isNotEmpty()) {
+            if (addNotesBinding.titleEditText?.editText?.text?.isNotEmpty()!!) {
                 val note = Notes()
                 note.name = addNotesBinding.etTitle.toString()
-                dbHandler.addToDo(note)
+                dbHandler.addNote(note)
 //                refreshList()
                 val intent = Intent(this, NoteActivity::class.java)
                 startActivity(intent)
                 finish()
-
             } else {
                 Toast.makeText(this, "Note is empty, pls add a note", Toast.LENGTH_SHORT)
                     .show()
             }
-
         }
 
+    }
+
+    fun updateNote(note: Notes) {
+        addNotesBinding.titleEditText?.editText?.setText(note.name)
+        note.name = addNotesBinding.titleEditText?.editText?.text.toString()
+        dbHandler.updateNote(note)
+//        refreshList
     }
 
 

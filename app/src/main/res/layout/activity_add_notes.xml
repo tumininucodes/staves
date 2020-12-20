@@ -20,9 +20,9 @@
             tools:ignore="PrivateResource" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_title"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
+            android:id="@+id/titleEditText"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -32,11 +32,12 @@
             app:hintTextColor="@color/blue">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_title"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:textColor="@color/black"
                 android:layout_gravity="start"
-                android:inputType="textShortMessage|textCapSentences|textAutoCorrect" />
+                android:inputType="textShortMessage|textCapSentences|textAutoCorrect"
+                android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,8 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="start"
-                android:textColor="@color/black"
-                android:inputType="textLongMessage|textAutoCorrect|textMultiLine|textCapSentences|textImeMultiLine" />
+                android:inputType="textLongMessage|textAutoCorrect|textMultiLine|textCapSentences|textImeMultiLine"
+                android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -29,7 +29,7 @@ class DataBaseHandler(private val context: Context) :
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
     }
 
-    fun addToDo(note: Notes): Boolean {
+    fun addNote(note: Notes): Boolean {
 
         val db = writableDatabase
         val cv = ContentValues()
@@ -41,7 +41,7 @@ class DataBaseHandler(private val context: Context) :
         return result != (-1).toLong()
     }
 
-    fun updateToDo(note: Notes) {
+    fun updateNote(note: Notes) {
 
         val db = writableDatabase
         val cv = ContentValues()
@@ -58,7 +58,7 @@ class DataBaseHandler(private val context: Context) :
         )
     }
 
-    fun deleteToDo(todoId: Long) {
+    fun deleteNote(todoId: Long) {
 
         val db = writableDatabase
 
@@ -66,7 +66,7 @@ class DataBaseHandler(private val context: Context) :
 
     }
 
-    fun getToDos(): MutableList<Notes> {
+    fun getNotes(): MutableList<Notes> {
 
         val result: MutableList<Notes> = ArrayList()
         val db = readableDatabase
