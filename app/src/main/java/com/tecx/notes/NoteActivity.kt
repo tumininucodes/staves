@@ -15,24 +15,26 @@ class NoteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Use dataBinding to inflate the view
         noteBinding = DataBindingUtil.setContentView(this, R.layout.activity_note)
 
+        // An onclick listener is set for the hamburger icon on the action bar that slides
+        // the navigation view into place when clicked
         noteBinding.toolbarNote.setNavigationOnClickListener {
             noteBinding.drawerLayout.openDrawer(noteBinding.navigationView)
         }
-//
+
+
         noteBinding.fabNotesAdd.setOnClickListener {
             startActivity(Intent(this, AddNotesActivity::class.java))
             finish()
         }
 
         noteBinding.navigationView.setNavigationItemSelectedListener { menuItem ->
-            // Handle menu item selected
             menuItem.isChecked = true
             when (menuItem.itemId) {
 
                 R.id.theme -> {
-//                    Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
                     AppCompatDelegate.MODE_NIGHT_YES
                 }
 
