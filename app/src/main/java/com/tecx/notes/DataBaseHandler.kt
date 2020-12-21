@@ -9,7 +9,7 @@ import java.util.*
 class DataBaseHandler(private val context: Context) :
     SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
 
-    override fun onCreate(db: SQLiteDatabase?) {
+    override fun onCreate(db: SQLiteDatabase) {
         val createNoteTable = " CREATE TABLE $TABLE_NOTE (" +
                 "$COL_ID integer PRIMARY KEY AUTOINCREMENT," +
                 "$COL_CREATED_AT datetime DEFAULT CURRENT_TIMESTAMP," +
@@ -22,8 +22,8 @@ class DataBaseHandler(private val context: Context) :
                 "$COL_ITEM_NAME varchar," +
                 "$COL_IS_COMPLETED integer);"
 
-        db?.execSQL(createNoteTable)
-        db?.execSQL(createNoteItemTable)
+        db.execSQL(createNoteTable)
+        db.execSQL(createNoteItemTable)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

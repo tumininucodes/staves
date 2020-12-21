@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
@@ -18,13 +17,22 @@ import com.tecx.notes.databinding.ActivityNoteBinding
 class NoteActivity : AppCompatActivity() {
 
     lateinit var noteBinding: ActivityNoteBinding
+    lateinit var dbHandler: DataBaseHandler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        noteBinding.notesRecyclerView?.layoutManager =
-            StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+
+
+        dbHandler = DataBaseHandler(this)
+
         // Use dataBinding to inflate the view
         noteBinding = DataBindingUtil.setContentView(this, R.layout.activity_note)
+
+        noteBinding.notesRecyclerView?.layoutManager =
+            StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+
+
+        refreshList()
 
         // An onclick listener is set for the hamburger icon on the action bar that slides
         // the navigation view into place when clicked
@@ -61,6 +69,15 @@ class NoteActivity : AppCompatActivity() {
         finishActivity(0)
     }
 
+    private fun refreshList() {
+        noteBinding.notesRecyclerView?.adapter = NoteAdapter(dbHandler.getNotes(), this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshList()
+    }
+
     private fun hideNoteImage() {
         noteBinding.addNotesImage.visibility = View.GONE
     }
@@ -84,7 +101,7 @@ class NoteActivity : AppCompatActivity() {
         }
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val noteTitle: TextView = itemView.findViewById(R.id.titleEditText)
+
         }
     }
 }

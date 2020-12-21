@@ -20,6 +20,7 @@ class AddNotesActivity : AppCompatActivity() {
         // Use data binding to set content view
         addNotesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes)
 
+
         // An onclick listener is created for this activity's toolbar icon that opens the activity
         // which is in the back stack. In this case, the NoteActivity
         addNotesBinding.addNotesToolbar.setNavigationOnClickListener {
