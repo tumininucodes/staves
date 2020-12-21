@@ -15,6 +15,7 @@ class AddNotesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         dbHandler = DataBaseHandler(this)
         // Use data binding to set content view
         addNotesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes)
@@ -37,7 +38,7 @@ class AddNotesActivity : AppCompatActivity() {
                 val note = Notes()
                 note.name = addNotesBinding.etTitle.toString()
                 dbHandler.addNote(note)
-//                refreshList()
+
                 val intent = Intent(this, NoteActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -53,7 +54,6 @@ class AddNotesActivity : AppCompatActivity() {
         addNotesBinding.titleEditText?.editText?.setText(note.name)
         note.name = addNotesBinding.titleEditText?.editText?.text.toString()
         dbHandler.updateNote(note)
-//        refreshList
     }
 
 

@@ -2,11 +2,17 @@ package com.tecx.notes
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.tecx.notes.databinding.ActivityNoteBinding
 
 class NoteActivity : AppCompatActivity() {
@@ -15,6 +21,8 @@ class NoteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        noteBinding.notesRecyclerView?.layoutManager =
+            StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         // Use dataBinding to inflate the view
         noteBinding = DataBindingUtil.setContentView(this, R.layout.activity_note)
 
@@ -55,5 +63,28 @@ class NoteActivity : AppCompatActivity() {
 
     private fun hideNoteImage() {
         noteBinding.addNotesImage.visibility = View.GONE
+    }
+
+    class NoteAdapter(
+        private val list: MutableList<Notes>,
+        private val activity: NoteActivity
+    ) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            return ViewHolder(
+                LayoutInflater.from(activity).inflate(R.layout.recycler_view_child, parent, false)
+            )
+        }
+
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.noteTitle.text = list[position].name
+        }
+
+        override fun getItemCount(): Int {
+            return list.size
+        }
+
+        class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val noteTitle: TextView = itemView.findViewById(R.id.titleEditText)
+        }
     }
 }
