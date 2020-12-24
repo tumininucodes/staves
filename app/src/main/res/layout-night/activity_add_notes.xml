@@ -20,19 +20,20 @@
             tools:ignore="PrivateResource" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_title"
+            android:id="@+id/titleEditText"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            app:boxBackgroundColor="@color/black_light"
             android:layout_marginEnd="16dp"
             android:hint="@string/title"
+            app:boxBackgroundColor="@color/black_light"
             app:boxStrokeColor="@color/white"
             app:hintTextColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_title"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="start"
@@ -43,21 +44,21 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_description"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/black_light"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            app:boxBackgroundColor="@color/black_light"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/black_light"
             android:hint="@string/description"
+            app:boxBackgroundColor="@color/black_light"
             app:boxStrokeColor="@color/white"
             app:hintTextColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="start"

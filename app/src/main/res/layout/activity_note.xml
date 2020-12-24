@@ -14,12 +14,12 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar_note"
                 android:layout_width="0dp"
-                android:layout_height="52dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/rounded_corner"
-                android:elevation="5dp"
+                android:elevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -46,14 +46,18 @@
                 android:src="@drawable/ic_add_notes_bro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:contentDescription="@string/add_notes"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/notesRecyclerView"
                 android:layout_width="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="68dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="16dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="60dp"
-                android:elevation="2dp"
+                android:background="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

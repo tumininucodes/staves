@@ -11,7 +11,7 @@ class AddNotesActivity : AppCompatActivity() {
 
     // Objects to be used later are initialised here
     private lateinit var addNotesBinding: ActivityAddNotesBinding
-    lateinit var dbHandler: DataBaseHandler
+    private lateinit var dbHandler: DataBaseHandler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +35,9 @@ class AddNotesActivity : AppCompatActivity() {
             // If the there is text in the title and description edit text, add it to the database
             // and start the note activity, else a toast message appears that prompts users for
             // input
-            if (addNotesBinding.titleEditText?.editText?.text?.isNotEmpty()!!) {
+            if (addNotesBinding.titleEditText.editText?.text?.isNotEmpty()!!) {
                 val note = Notes()
-                note.name = addNotesBinding.etTitle.toString()
+                note.name = addNotesBinding.etTitle.text.toString()
                 dbHandler.addNote(note)
 
                 val intent = Intent(this, NoteActivity::class.java)
@@ -52,8 +52,8 @@ class AddNotesActivity : AppCompatActivity() {
     }
 
     fun updateNote(note: Notes) {
-        addNotesBinding.titleEditText?.editText?.setText(note.name)
-        note.name = addNotesBinding.titleEditText?.editText?.text.toString()
+        addNotesBinding.titleEditText.editText?.setText(note.name)
+        note.name = addNotesBinding.titleEditText.editText?.text.toString()
         dbHandler.updateNote(note)
     }
 

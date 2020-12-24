@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.tecx.notes.databinding.ActivityNoteBinding
+import com.tecx.notes.databinding.RecyclerViewChildBinding
 
 class NoteActivity : AppCompatActivity() {
 
@@ -87,20 +88,21 @@ class NoteActivity : AppCompatActivity() {
         private val activity: NoteActivity
     ) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(
-                LayoutInflater.from(activity).inflate(R.layout.recycler_view_child, parent, false)
-            )
+            val layoutInflater = LayoutInflater.from(parent.context)
+            val binding = RecyclerViewChildBinding.inflate(layoutInflater)
+            return ViewHolder(binding)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.noteTitle.text = list[position].name
+            holder.binding.titleLine.text = list[position].name
         }
 
         override fun getItemCount(): Int {
             return list.size
         }
 
-        class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        class ViewHolder(val binding: RecyclerViewChildBinding) :
+            RecyclerView.ViewHolder(binding.root) {
 
         }
     }
