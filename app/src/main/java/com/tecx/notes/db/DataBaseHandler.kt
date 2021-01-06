@@ -1,13 +1,18 @@
-package com.tecx.notes
+package com.tecx.notes.db
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.tecx.notes.*
 import java.util.*
 
 class DataBaseHandler(private val context: Context) :
-    SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
+    SQLiteOpenHelper(
+        context,
+        DB_NAME, null,
+        DB_VERSION
+    ) {
 
     override fun onCreate(db: SQLiteDatabase) {
         val createNoteTable = " CREATE TABLE $TABLE_NOTE (" +
