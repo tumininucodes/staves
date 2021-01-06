@@ -1,4 +1,4 @@
-package com.tecx.notes
+package com.tecx.notes.db
 
 const val DB_NAME = "NoteList"
 const val DB_VERSION = 1

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.tecx.notes.db.DataBaseHandler
 import com.tecx.notes.NoteActivity
-import com.tecx.notes.Notes
+import com.tecx.notes.db.Notes
 import com.tecx.notes.R
 import com.tecx.notes.databinding.ActivityAddNotesBinding
 

@@ -1,4 +1,4 @@
-package com.tecx.notes
+package com.tecx.notes.db
 
 class Notes {
 

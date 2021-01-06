@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.tecx.notes.databinding.ActivityNoteBinding
 import com.tecx.notes.databinding.RecyclerViewChildBinding
 import com.tecx.notes.db.DataBaseHandler
+import com.tecx.notes.db.Notes
 import com.tecx.notes.ui.AboutActivity
 import com.tecx.notes.ui.AddNotesActivity
 
