@@ -22,21 +22,13 @@ class AddNotesActivity : AppCompatActivity() {
         dbHandler = DataBaseHandler(this)
         addNotesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes)
 
-
-        // An onclick listener is created for this activity's toolbar icon that opens the activity
-        // which is in the back stack. In this case, the NoteActivity
         addNotesBinding.addNotesToolbar.setNavigationOnClickListener {
             val intent = Intent(this, NoteActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        // An on click listener is set for the save button that saves the title and description of
-        // the note to the database
         addNotesBinding.saveNoteButton.setOnClickListener {
-            // If the there is text in the title and description edit text, add it to the database
-            // and start the note activity, else a toast message appears that prompts users for
-            // input
             if (addNotesBinding.titleEditText.editText?.text?.isNotEmpty()!!) {
                 val note = Notes()
                 note.name = addNotesBinding.etTitle.text.toString()
@@ -59,8 +51,6 @@ class AddNotesActivity : AppCompatActivity() {
         dbHandler.updateNote(note)
     }
 
-
-    // This override method opens NoteActivity and closes this activity
     override fun onBackPressed() {
         overridePendingTransition(R.anim.left_to_right, R.anim.left_to_right)
         super.onBackPressed()
