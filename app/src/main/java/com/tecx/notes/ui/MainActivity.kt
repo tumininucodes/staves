@@ -1,9 +1,10 @@
-package com.tecx.notes
+package com.tecx.notes.ui
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.tecx.notes.R
 import com.tecx.notes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

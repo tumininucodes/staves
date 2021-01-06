@@ -13,9 +13,9 @@
         <activity android:name=".ui.AboutActivity">
 
         </activity>
-        <activity android:name=".NoteActivity" />
-        <activity android:name=".WelcomeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.NoteActivity" />
+        <activity android:name=".ui.WelcomeActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

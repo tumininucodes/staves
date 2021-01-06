@@ -1,4 +1,4 @@
-package com.tecx.notes
+package com.tecx.notes.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,12 +12,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.tecx.notes.R
 import com.tecx.notes.databinding.ActivityNoteBinding
 import com.tecx.notes.databinding.RecyclerViewChildBinding
 import com.tecx.notes.db.DataBaseHandler
 import com.tecx.notes.db.Notes
-import com.tecx.notes.ui.AboutActivity
-import com.tecx.notes.ui.AddNotesActivity
 
 class NoteActivity : AppCompatActivity() {
 
@@ -31,7 +30,10 @@ class NoteActivity : AppCompatActivity() {
         dbHandler = DataBaseHandler(this)
 
         // Use dataBinding to inflate the view
-        noteBinding = DataBindingUtil.setContentView(this, R.layout.activity_note)
+        noteBinding = DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_note
+        )
 
         noteBinding.notesRecyclerView?.layoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
@@ -75,7 +77,11 @@ class NoteActivity : AppCompatActivity() {
     }
 
     private fun refreshList() {
-        noteBinding.notesRecyclerView?.adapter = NoteAdapter(dbHandler.getNotes(), this)
+        noteBinding.notesRecyclerView?.adapter =
+            NoteAdapter(
+                dbHandler.getNotes(),
+                this
+            )
     }
 
     override fun onResume() {
