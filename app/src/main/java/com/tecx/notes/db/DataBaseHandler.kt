@@ -43,6 +43,7 @@ class DataBaseHandler(private val context: Context) :
         val result = db.insert(TABLE_NOTE, null, cv)
 
         return result != (-1).toLong()
+
     }
 
     fun updateNote(note: Notes) {

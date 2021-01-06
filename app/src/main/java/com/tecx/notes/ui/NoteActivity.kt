@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.tecx.notes.R
+import com.tecx.notes.adapter.NoteAdapter
 import com.tecx.notes.databinding.ActivityNoteBinding
 import com.tecx.notes.databinding.RecyclerViewChildBinding
 import com.tecx.notes.db.DataBaseHandler
@@ -96,27 +97,5 @@ class NoteActivity : AppCompatActivity() {
         noteBinding.addNotesImage.visibility = View.GONE
     }
 
-    class NoteAdapter(
-        private val list: MutableList<Notes>,
-        private val activity: NoteActivity
-    ) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val layoutInflater = LayoutInflater.from(parent.context)
-            val binding = RecyclerViewChildBinding.inflate(layoutInflater)
-            return ViewHolder(binding)
-        }
 
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.binding.titleLine.text = list[position].name
-        }
-
-        override fun getItemCount(): Int {
-            return list.size
-        }
-
-        class ViewHolder(val binding: RecyclerViewChildBinding) :
-            RecyclerView.ViewHolder(binding.root) {
-
-        }
-    }
 }
