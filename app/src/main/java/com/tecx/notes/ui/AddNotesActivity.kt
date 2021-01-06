@@ -66,11 +66,11 @@ class AddNotesActivity : AppCompatActivity() {
 
     // This override method opens NoteActivity and closes this activity
     override fun onBackPressed() {
+        overridePendingTransition(R.anim.left_to_right, R.anim.left_to_right)
         super.onBackPressed()
         val intent = Intent(this, NoteActivity::class.java)
         startActivity(intent)
         finish()
-        finishActivity(0)
     }
 
 }

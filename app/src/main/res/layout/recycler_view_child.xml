@@ -13,6 +13,7 @@
             android:layout_margin="8dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="#FFF"
+            android:elevation="2dp"
             android:orientation="vertical"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
