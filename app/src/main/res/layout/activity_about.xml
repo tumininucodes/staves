@@ -23,7 +23,6 @@
                 app:titleTextAppearance="@style/ActionBarText"
                 app:titleTextColor="@color/black" />
 
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
