@@ -1,5 +1,6 @@
 package com.tecx.notes.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,35 +22,32 @@ import com.tecx.notes.db.Notes
 
 class NoteActivity : AppCompatActivity() {
 
-    lateinit var noteBinding: ActivityNoteBinding
-    lateinit var dbHandler: DataBaseHandler
+    private lateinit var noteBinding: ActivityNoteBinding
+    private lateinit var dbHandler: DataBaseHandler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        noteBinding = DataBindingUtil.setContentView(this, R.layout.activity_note)
 
+        val isFirstRun: Boolean =
+            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).getBoolean("isFirstRun", true)
+
+        if (!isFirstRun) {
+            hideNoteImage()
+        }
+
+        getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
+            .putBoolean("isFirstRun", false).apply()
 
         dbHandler = DataBaseHandler(this)
-
-        // Use dataBinding to inflate the view
-        noteBinding = DataBindingUtil.setContentView(
-            this,
-            R.layout.activity_note
-        )
-
         noteBinding.notesRecyclerView?.layoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-
         noteBinding.notesRecyclerView?.addItemDecoration(SpacingForRecyclerChild(8))
-
-
         refreshList()
 
-        // An onclick listener is set for the hamburger icon on the action bar that slides
-        // the navigation view into place when clicked
         noteBinding.toolbarNote.setNavigationOnClickListener {
             noteBinding.drawerLayout.openDrawer(noteBinding.navigationView)
         }
-
 
         noteBinding.fabNotesAdd.setOnClickListener {
             startActivity(Intent(this, AddNotesActivity::class.java))
@@ -59,11 +57,9 @@ class NoteActivity : AppCompatActivity() {
         noteBinding.navigationView.setNavigationItemSelectedListener { menuItem ->
             menuItem.isChecked = true
             when (menuItem.itemId) {
-
                 R.id.theme -> {
                     AppCompatDelegate.MODE_NIGHT_YES
                 }
-
                 R.id.about -> {
                     startActivity(Intent(this, AboutActivity::class.java))
                     finish()
@@ -82,10 +78,7 @@ class NoteActivity : AppCompatActivity() {
 
     private fun refreshList() {
         noteBinding.notesRecyclerView?.adapter =
-            NoteAdapter(
-                dbHandler.getNotes(),
-                this
-            )
+            NoteAdapter(dbHandler.getNotes(), this)
     }
 
     override fun onResume() {
@@ -96,6 +89,5 @@ class NoteActivity : AppCompatActivity() {
     private fun hideNoteImage() {
         noteBinding.addNotesImage.visibility = View.GONE
     }
-
 
 }
