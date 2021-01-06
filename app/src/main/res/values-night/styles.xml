@@ -27,4 +27,8 @@
         <item name="backgroundTint">@color/black_light</item>
     </style>
 
+    <style name="NavigationTextStyle" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/product_sans_regular</item>
+    </style>
+
 </resources>
