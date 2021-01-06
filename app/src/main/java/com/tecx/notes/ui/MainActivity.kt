@@ -29,4 +29,10 @@ class MainActivity : AppCompatActivity() {
         getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
             .putBoolean("isFirstRun", false).apply()
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+        finish()
+    }
 }

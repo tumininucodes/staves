@@ -73,7 +73,8 @@ class NoteActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        finishActivity(0)
+        finishAffinity()
+        finish()
     }
 
     private fun refreshList() {
