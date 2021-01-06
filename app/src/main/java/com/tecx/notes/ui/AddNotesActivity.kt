@@ -20,11 +20,7 @@ class AddNotesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         dbHandler = DataBaseHandler(this)
-        // Use data binding to set content view
-        addNotesBinding = DataBindingUtil.setContentView(
-            this,
-            R.layout.activity_add_notes
-        )
+        addNotesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes)
 
 
         // An onclick listener is created for this activity's toolbar icon that opens the activity
