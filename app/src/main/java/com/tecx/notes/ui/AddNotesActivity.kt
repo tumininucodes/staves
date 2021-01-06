@@ -1,10 +1,14 @@
-package com.tecx.notes
+package com.tecx.notes.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.tecx.notes.DataBaseHandler
+import com.tecx.notes.NoteActivity
+import com.tecx.notes.Notes
+import com.tecx.notes.R
 import com.tecx.notes.databinding.ActivityAddNotesBinding
 
 class AddNotesActivity : AppCompatActivity() {
@@ -18,7 +22,10 @@ class AddNotesActivity : AppCompatActivity() {
 
         dbHandler = DataBaseHandler(this)
         // Use data binding to set content view
-        addNotesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_notes)
+        addNotesBinding = DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_add_notes
+        )
 
 
         // An onclick listener is created for this activity's toolbar icon that opens the activity

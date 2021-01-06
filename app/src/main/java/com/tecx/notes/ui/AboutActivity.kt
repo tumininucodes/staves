@@ -1,9 +1,11 @@
-package com.tecx.notes
+package com.tecx.notes.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.tecx.notes.NoteActivity
+import com.tecx.notes.R
 import com.tecx.notes.databinding.ActivityAboutBinding
 
 class AboutActivity : AppCompatActivity() {
@@ -12,7 +14,10 @@ class AboutActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        aboutBinding = DataBindingUtil.setContentView(this, R.layout.activity_about)
+        aboutBinding = DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_about
+        )
 
         aboutBinding.aboutToolbar.setNavigationOnClickListener {
             startActivity(Intent(this, NoteActivity::class.java))
