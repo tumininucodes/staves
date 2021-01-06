@@ -38,6 +38,8 @@ class NoteActivity : AppCompatActivity() {
         noteBinding.notesRecyclerView?.layoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
 
+        noteBinding.notesRecyclerView?.addItemDecoration(SpacingForRecyclerChild(8))
+
 
         refreshList()
 
