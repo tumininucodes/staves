@@ -77,8 +77,15 @@ class NoteActivity : AppCompatActivity() {
     }
 
     private fun refreshList() {
+        
+        if(dbHandler.getNotes().isEmpty()) {
+            noteBinding.addNotesImage.visibility = View.VISIBLE
+        }
+        
         noteBinding.notesRecyclerView?.adapter =
             NoteAdapter(dbHandler.getNotes(), this)
+        
+        
     }
 
     override fun onResume() {
