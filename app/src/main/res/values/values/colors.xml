@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="window_background">#F8F7F7</color>
+    <color name="window_background_dark">#121212</color>
+    <color name="white">#F8F7F7</color>
+    <color name="blue">#2979FF</color>
+    <color name="black">#212121</color>
+    <color name="black_dark_mode">#121212</color>
+    <color name="black_light">#323231</color>
+    <color name="black_light_dark_mode">#313231</color>
+    <color name="white_shade">#DDDDDD</color>
+
+</resources>

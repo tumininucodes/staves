@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="notes">Notes</string>
+    <string name="_1">1</string>
+    <string name="save_note">Save Note</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="add_notes">Add Notes</string>
+    <string name="welcome_image">Welcome Image</string>
+    <string name="continue_button">continue</string>
+    <string name="hi">Hi! 👋</string>
+    <string name="the_rapidity_to_which_we_humans_forget_is_astonishing">The rapidity to which we humans forget is astonishing.
+        Technically, this isn\'t hardcopy pen and paper but it does the job.
+        \n\nHave fun keeping notes!
+        \n\nOne more thing…
+        \n\nEnjoy! 🎉</string>
+    <string name="backup">Backup</string>
+    <string name="theme">Theme</string>
+    <string name="export">Export</string>
+    <string name="about">About</string>
+    <string name="developer_s_image">Developer\'s Image</string>
+    <string name="designed_and_developed_by">Designed and Developed by</string>
+    <string name="oluwatumininuojo25_gmail_com">oluwatumininuojo25@gmail.com</string>
+    <string name="github_com_tumininucodes">github.com/TumininuCodes</string>
+    <string name="tumininu_ojo">Tumininu Ojo</string>
+    <string name="type_in_notes_here">Type in Notes here</string>
+    <string name="shadow_for_toolbar">Shadow for toolbar</string>
+    <string name="version_1_0_0">Version 1.0.0</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="light_mode">Light Mode</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

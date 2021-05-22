@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.tumininu.staves.ui.fragments.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note">
+        <action
+            android:id="@+id/action_noteFragment_to_addNotesFragment"
+            app:destination="@id/addNotesFragment"
+            app:enterAnim="@anim/right_to_left"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/left_to_right" />
+        <action
+            android:id="@+id/action_noteFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/down_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/up_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNotesFragment"
+        android:name="com.tumininu.staves.ui.fragments.AddNotesFragment"
+        android:label="fragment_add_notes"
+        tools:layout="@layout/fragment_add_notes">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="body"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.tumininu.staves.ui.fragments.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:label="WelcomeFragment"
+        android:name="com.tumininu.staves.ui.fragments.WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_noteFragment"
+            app:destination="@id/noteFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
