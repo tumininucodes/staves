@@ -7,24 +7,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.tumininu.staves.data.viewmodel.NotesViewModel
-import com.tumininu.staves.db.Notes
 import com.tumininu.staves.R
-import com.tumininu.staves.databinding.FragmentAddNotesBinding
+import com.tumininu.staves.data.viewmodel.NotesViewModel
+import com.tumininu.staves.databinding.FragmentUpdateNoteBinding
+import com.tumininu.staves.db.Notes
 import kotlin.properties.Delegates
 
+class UpdateNoteFragment : Fragment() {
 
-class AddNotesFragment : Fragment() {
-
-    var binding: FragmentAddNotesBinding? = null
+    var binding: FragmentUpdateNoteBinding? = null
     lateinit var viewModel: NotesViewModel
+    var noteID by Delegates.notNull<Long>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentAddNotesBinding.inflate(inflater)
+        binding = FragmentUpdateNoteBinding.inflate(inflater)
 
         viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
             .create(NotesViewModel::class.java)
@@ -38,8 +38,9 @@ class AddNotesFragment : Fragment() {
 
             notes.name = binding?.etTitle?.text.toString()
             notes.body = binding?.etDescription?.text.toString()
+            notes.id = noteID
 
-            viewModel.insert(notes)
+            viewModel.update(notes)
 
             Navigation.findNavController(this.requireActivity(), R.id.nav_host)
                 .popBackStack()
@@ -55,15 +56,23 @@ class AddNotesFragment : Fragment() {
                 .popBackStack()
         }
 
+
         return binding?.root
     }
 
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
+    }
+
     private fun inflateData() {
-        val args = arguments?.let { AddNotesFragmentArgs.fromBundle(it) }
+        val args = arguments?.let { UpdateNoteFragmentArgs.fromBundle(it) }
         val title = args?.title
         val body = args?.body
+        noteID = args?.id!!
 
         binding?.etTitle?.setText(title)
         binding?.etDescription?.setText(body)
     }
+
 }

@@ -118,7 +118,7 @@ class NoteFragment : Fragment() {
     private fun fabClick() {
         binding?.fabNotesAdd?.setOnClickListener {
             Navigation.findNavController(this.requireActivity(), R.id.nav_host).navigate(
-                NoteFragmentDirections.actionNoteFragmentToAddNotesFragment("","")
+                NoteFragmentDirections.actionNoteFragmentToAddNotesFragment("", "")
             )
         }
     }

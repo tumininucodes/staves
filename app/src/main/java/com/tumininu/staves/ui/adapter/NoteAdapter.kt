@@ -34,7 +34,7 @@ class NoteAdapter(
                 context as Activity,
                 R.id.nav_host
             ).navigate(
-                NoteFragmentDirections.actionNoteFragmentToAddNotesFragment(
+                NoteFragmentDirections.actionNoteFragmentToUpdateNoteFragment(
                     id = list[position].id,
                     title = list[position].name,
                     body = list[position].body
