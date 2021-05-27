@@ -21,8 +21,8 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(notes)
     }
 
-    fun delete(notes: Notes) {
-        repository.delete(notes)
+    fun delete(title: String) {
+        repository.delete(title)
     }
 
     fun update(notes: Notes) {

@@ -29,9 +29,9 @@ class NotesRepository(application: Application) {
         }
     }
 
-    fun delete(notes: Notes) {
+    fun delete(title: String) {
         GlobalScope.launch {
-            dao.delete(notes)
+            dao.delete(title)
         }
     }
 }

@@ -36,6 +36,10 @@
         <argument
             android:name="body"
             app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"

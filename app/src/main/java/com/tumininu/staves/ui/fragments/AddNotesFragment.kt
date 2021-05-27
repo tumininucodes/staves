@@ -48,6 +48,10 @@ class AddNotesFragment : Fragment() {
             Navigation.findNavController(this.requireActivity(), R.id.nav_host).navigateUp()
         }
 
+        binding?.deleteNote?.setOnClickListener {
+            viewModel.delete(binding?.etTitle?.text.toString())
+        }
+
         return binding?.root
     }
 

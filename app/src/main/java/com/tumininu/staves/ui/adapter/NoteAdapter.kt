@@ -35,9 +35,11 @@ class NoteAdapter(
                 R.id.nav_host
             ).navigate(
                 NoteFragmentDirections.actionNoteFragmentToAddNotesFragment(
-            title = list[position].name,
-            body = list[position].body
-            ))
+                    id = list[position].id,
+                    title = list[position].name,
+                    body = list[position].body
+                )
+            )
 
         }
     }
