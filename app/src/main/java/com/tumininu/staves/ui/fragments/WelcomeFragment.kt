@@ -22,7 +22,7 @@ class WelcomeFragment : Fragment() {
 
         binding?.continueButton?.setOnClickListener {
             Navigation.findNavController(this.requireActivity(), R.id.nav_host)
-                .navigate(R.id.noteFragment)
+                .navigate(R.id.action_welcomeFragment_to_noteFragment)
         }
 
         return binding?.root

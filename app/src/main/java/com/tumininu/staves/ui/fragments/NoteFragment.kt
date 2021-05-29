@@ -1,12 +1,14 @@
 package com.tumininu.staves.ui.fragments
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -14,10 +16,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.tumininu.staves.data.viewmodel.NotesViewModel
-import com.tumininu.staves.ui.adapter.NoteAdapter
 import com.tumininu.staves.R
+import com.tumininu.staves.data.viewmodel.NotesViewModel
 import com.tumininu.staves.databinding.FragmentNoteBinding
+import com.tumininu.staves.ui.adapter.NoteAdapter
 import com.tumininu.staves.util.SpacingForRecyclerChild
 
 
@@ -33,6 +35,8 @@ class NoteFragment : Fragment() {
     ): View? {
         binding = FragmentNoteBinding.inflate(inflater)
 
+        hideKeyboard()
+
         viewModelSetup()
 
         recyclerViewSetup()
@@ -46,6 +50,12 @@ class NoteFragment : Fragment() {
         fabClick()
 
         return binding?.root
+    }
+
+    private fun hideKeyboard() {
+        val imm: InputMethodManager? =
+            activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+        imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
     }
 
 
@@ -71,16 +81,12 @@ class NoteFragment : Fragment() {
             when (menuItem.itemId) {
 
                 R.id.dark_theme -> {
-                    Navigation.findNavController(this.requireActivity(), R.id.nav_host)
-                        .popBackStack()
                     this.activity?.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)?.edit()
                         ?.putBoolean("isDarkOn", true)?.apply()
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 }
 
                 R.id.light_theme -> {
-                    Navigation.findNavController(this.requireActivity(), R.id.nav_host)
-                        .popBackStack()
                     this.activity?.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)?.edit()
                         ?.putBoolean("isDarkOn", false)?.apply()
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

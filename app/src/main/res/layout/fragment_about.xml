@@ -115,7 +115,8 @@
                 android:layout_marginStart="4dp"
                 android:text="@string/oluwatumininuojo25_gmail_com"
                 app:layout_constraintStart_toEndOf="@+id/mailImageView"
-                app:layout_constraintTop_toBottomOf="@id/tumiOjoTV" />
+                app:layout_constraintTop_toTopOf="@id/mailImageView"
+                app:layout_constraintBottom_toBottomOf="@id/mailImageView"/>
 
             <ImageView
                 android:id="@+id/linkImageView"
@@ -133,7 +134,8 @@
                 android:layout_marginStart="4dp"
                 android:text="@string/github_com_tumininucodes"
                 app:layout_constraintStart_toEndOf="@+id/linkImageView"
-                app:layout_constraintTop_toBottomOf="@id/mailImageView" />
+                app:layout_constraintTop_toTopOf="@id/linkImageView"
+                app:layout_constraintBottom_toBottomOf="@id/linkImageView"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

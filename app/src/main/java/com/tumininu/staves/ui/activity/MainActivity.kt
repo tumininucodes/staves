@@ -29,9 +29,6 @@ class MainActivity : AppCompatActivity() {
         if (isFirstRun) {
             Navigation.findNavController(this, R.id.nav_host)
                 .navigate(R.id.welcomeFragment)
-        } else {
-            Navigation.findNavController(this, R.id.nav_host)
-                .navigate(R.id.action_welcomeFragment_to_noteFragment)
         }
 
         getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
