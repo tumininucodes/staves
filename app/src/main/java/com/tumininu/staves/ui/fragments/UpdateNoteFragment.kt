@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -23,46 +24,66 @@ class UpdateNoteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentUpdateNoteBinding.inflate(inflater)
-
-        viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
-            .create(NotesViewModel::class.java)
-        binding?.lifecycleOwner = this.viewLifecycleOwner
-
+        viewModelSetup()
         inflateData()
-
-        binding?.saveNoteButton?.setOnClickListener {
-            // Saves note
-            val notes = Notes()
-
-            notes.name = binding?.etTitle?.text.toString()
-            notes.body = binding?.etDescription?.text.toString()
-            notes.id = noteID
-
-            viewModel.update(notes)
-
-            Navigation.findNavController(this.requireActivity(), R.id.nav_host)
-                .popBackStack()
-        }
-
-        binding?.toolbarNote?.setNavigationOnClickListener {
-            Navigation.findNavController(this.requireActivity(), R.id.nav_host).navigateUp()
-        }
-
-        binding?.deleteNote?.setOnClickListener {
-            viewModel.delete(binding?.etTitle?.text.toString())
-            Navigation.findNavController(this.requireActivity(), R.id.nav_host)
-                .popBackStack()
-        }
-
-
+        updateNote()
+        toolBarClick()
+        deleteNote()
         return binding?.root
     }
 
     override fun onDestroy() {
         binding = null
         super.onDestroy()
+    }
+
+
+
+
+
+
+
+    private fun deleteNote() {
+        binding?.deleteNote?.setOnClickListener {
+            viewModel.delete(binding?.etTitle?.text.toString())
+            Navigation.findNavController(this.requireActivity(), R.id.nav_host)
+                .popBackStack()
+        }
+    }
+
+    private fun toolBarClick() {
+        binding?.toolbarNote?.setNavigationOnClickListener {
+            Navigation.findNavController(this.requireActivity(), R.id.nav_host).navigateUp()
+        }
+    }
+
+    private fun updateNote() {
+        binding?.saveNoteButton?.setOnClickListener {
+            if (binding?.etTitle?.text?.isEmpty() == true || binding?.etDescription?.text?.isEmpty() == true) {
+                Toast.makeText(this.requireContext(), "Pls fill all fields", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                // Saves note
+                val notes = Notes()
+
+                notes.name = binding?.etTitle?.text.toString()
+                notes.body = binding?.etDescription?.text.toString()
+                notes.id = noteID
+
+                viewModel.update(notes)
+
+                Navigation.findNavController(this.requireActivity(), R.id.nav_host)
+                    .popBackStack()
+            }
+
+        }
+    }
+
+    private fun viewModelSetup() {
+        viewModel = ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
+            .create(NotesViewModel::class.java)
+        binding?.lifecycleOwner = this.viewLifecycleOwner
     }
 
     private fun inflateData() {

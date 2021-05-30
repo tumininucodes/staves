@@ -3,12 +3,13 @@ package com.tumininu.staves.ui.fragments
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.os.IBinder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputBinding
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -34,28 +35,27 @@ class NoteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNoteBinding.inflate(inflater)
-
-        hideKeyboard()
-
         viewModelSetup()
-
         recyclerViewSetup()
-
         refreshList()
-
         openDrawer()
-
         navigationItemClicks()
-
         fabClick()
-
         return binding?.root
     }
 
-    private fun hideKeyboard() {
-        val imm: InputMethodManager? =
-            activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
-        imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+    override fun onResume() {
+        super.onResume()
+        hideKeyboard()
+    }
+
+    private fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 
@@ -63,7 +63,7 @@ class NoteFragment : Fragment() {
         binding?.lifecycleOwner?.let {
             viewModel.getAllNotes().observe(it, Observer { list ->
                 binding?.notesRecyclerView?.adapter = NoteAdapter(list, this.requireContext())
-
+                binding?.notesRecyclerView?.adapter?.notifyDataSetChanged()
                 if (list.isEmpty()) {
                     binding?.addNotesImage?.visibility = View.VISIBLE
                 } else {

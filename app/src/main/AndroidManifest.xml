@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Staves">
-        <activity android:name="com.tumininu.staves.ui.activity.MainActivity"
-            android:windowSoftInputMode="stateHidden">
+        <activity android:name="com.tumininu.staves.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
