@@ -40,7 +40,7 @@
                 android:layout_width="65dp"
                 android:layout_height="67dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_notes_blue_100"
+                android:src="@drawable/ic_notes"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
